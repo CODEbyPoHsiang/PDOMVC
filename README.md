@@ -1,13 +1,14 @@
-# pdomvc
-Simple CRUD using MVC(Model-Viewer-Controller) which is implement OOP Concept,PDO and Bootstrap
+# PHP-MVC-CRUD
+簡易的MVC架構，OPP，資料庫PDO
 
-Access url using : http://localhost/pdomvc/index.php/music (View all list music)
-and don't forget to import this database : db_latmusic.sql on mysql,mariadb,etc
 
-## Required
+## 需求
 * PHP 5.0 or PHP 7
-* WAMPP,XAMPP,etc
+* WAMPP,XAMPP
 
 
-## Results
-CRUD Menu and Viewer List ![Image Insert](https://github.com/venomofcode/pdomvc/blob/master/images/Insert.JPG?raw=true)
+## 說明
+
+不使用composer套件支援之下，以原生PHP創建的簡易MVC，達到CRUD需求功能
+
+>https://github.com/venomofcode/pdomvc
