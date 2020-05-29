@@ -23,7 +23,7 @@ class Member{
     {
         if ($_POST) {
             $this->model->insert();
-            header("Location: http://localhost/pdomvc/index.php/member");
+            header("Location: /index.php/member");
         } else {
             require 'view/member/form.php';
         }
@@ -33,7 +33,7 @@ class Member{
     {
         if ($_POST) {
             $this->model->update($id);
-            header("Location: http://localhost/pdomvc/index.php/member");
+            header("Location: /index.php/member");
         } else {
             $member = $this->model->getMemberById($id);
             require 'view/member/form.php';
@@ -44,7 +44,7 @@ class Member{
     {
         if ($id) {
             $this->model->delete($id);
-            header("Location: http://localhost/pdomvc/index.php/member");
+            header("Location: /index.php/member");
         }
     }
 }

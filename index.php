@@ -17,17 +17,17 @@ $controller = new Member($model);
 if ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'info') {         // Info//個人資料檢視
     $id = $_GET['id'];
     $controller->info($id);
-} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'edit') {     // Edit
+} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'edit') {     // Edit //編輯聯絡人
     $id = $_GET['id'];
     $controller->edit($id);
-} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'delete') {   // Delete
+} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'delete') {   // Delete //刪除聯絡人
     $id = $_GET['id'];
     $controller->delete($id);
-} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'create') {   // Create
+} elseif ($uri0 && $uri1 && $uri[0] === 'member' && $uri[1] === 'create') {   // Create //新增聯絡人
     $controller->create();
-} elseif ($uri[0] === 'member') {                                             // Index
+} elseif ($uri[0] === 'member') {                                             // Index //首頁
     $controller->index();
-} else {                                                                       // 404
+} else {                                                                       // 404 //輸入錯的網址，警告頁面
     header('HTTP/1.1 404 Not Found');
     echo '<html><body><h1>404</h1><br><br><h2><center>
     您要查找的頁面不存在，請重新操作!</center></h2></body></html>';

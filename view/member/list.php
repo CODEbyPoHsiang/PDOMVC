@@ -1,11 +1,10 @@
 <!-- view/member/list.php -->
-<?php $title = '首頁'
-?>
+<?php $title = '首頁'?>
 
 <?php ob_start() ?>
 <div class="container">
     <div class="pull-right">
-        <a href="http://localhost/pdomvc/index.php/member/create" class="btn btn-default pull-right" style="border-Radius: 0px;"><span class="glyphicon glyphicon-plus"></span> 新增聯絡人</a>
+        <a href="/index.php/member/create" class="btn btn-default pull-right" style="border-Radius: 0px;"><span class="glyphicon glyphicon-plus"></span> 新增聯絡人</a>
     </div>
     <br />
     <br />
@@ -28,9 +27,9 @@
                         <td><?= $row['phone'] ?></td>
                         <td><?= $row['email'] ?></td>
                         <td><?= $row['address'] ?></td>
-                        <td><a href="http://localhost/pdomvc/index.php/member/info?id=<?= $row['id'] ?>" class="btn btn-success btn " style="border-Radius: 0px;">檢視</a></td>
-                        <td><a href="http://localhost/pdomvc/index.php/member/edit?id=<?= $row['id'] ?>" class="btn btn-warning btn " style="border-Radius: 0px;"><span class="glyphicon glyphicon-edit"></span> 編輯</a></td>
-                        <td><a href="http://localhost/pdomvc/index.php/member/delete?id=<?= $row['id'] ?>" onclick="return confirm('確定要刪除此筆資料?')" class="btn btn-danger btn " style="border-Radius: 0px;"> <span class="glyphicon glyphicon-trash"></span> 刪除</a></td>
+                        <td><a href="/index.php/member/info?id=<?= $row['id'] ?>" class="btn btn-success btn " style="border-Radius: 0px;">檢視</a></td>
+                        <td><a href="/index.php/member/edit?id=<?= $row['id'] ?>" class="btn btn-warning btn " style="border-Radius: 0px;"><span class="glyphicon glyphicon-edit"></span> 編輯</a></td>
+                        <td><a href="/index.php/member/delete?id=<?= $row['id'] ?>" onclick="return confirm('確定要刪除此筆資料?')" class="btn btn-danger btn " style="border-Radius: 0px;"> <span class="glyphicon glyphicon-trash"></span> 刪除</a></td>
                     </tr>
                 <?php endforeach ?>
             </table>

@@ -6,10 +6,10 @@ $uri = explode('/', $request);
 // Set form action
 if ($uri[1] === 'edit') {
     $title = '編輯聯絡人';
-    $form_action = "http://localhost/pdomvc/index.php/member/edit?id=" . $_GET['id'];
+    $form_action = "/index.php/member/edit?id=" . $_GET['id'];
 } else {
     $title = '新增聯絡人';
-    $form_action = "http://localhost/pdomvc/index.php/member/create";
+    $form_action = "/index.php/member/create";
 }
 
 $valName = isset($member['name']) ? $member['name'] : '';
@@ -27,8 +27,8 @@ $valId = isset($member['id']) ? $member['id'] : '';
 
 
 <?php ob_start() ?>
-<h1><?= $title ?></h1>
-
+<h3><?= $title ?></h3>
+<hr>
 <form action="<?= $form_action ?>" method="post">
     <div class="row">
 
@@ -106,9 +106,9 @@ $valId = isset($member['id']) ? $member['id'] : '';
                 </div>
             </div>
         </div>
-
-        <button class="btn btn-primary" type="submit">確認</button>
-        </>
+        <button class="btn btn-info" onclick="history.go(-1)" type="button">返回</button>
+        <div class="pull-right">
+            <button class="btn btn-primary" type="submit">確認</button> </div>
 </form>
 <?php $isi = ob_get_clean() ?>
 

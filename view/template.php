@@ -33,9 +33,11 @@
           text-decoration: none;
           font-size: 17px;
           }
+          
       </style>
   </head>
   <body>
+
   <nav class="navbar navbar-default">
       <div class="topnav">
         <a class="active" href="#home">通訊錄</a>
@@ -48,7 +50,5 @@
     <div class="container">
         <?= $isi ?>
     </div>
-    <!-- <script src="http://localhost/pdomvc/asset/js/jquery.min.js"></script>
-    <script src="http://localhost/pdomvc/asset/css/js/bootstrap.min.js"></script> -->
   </body>
 </html>
