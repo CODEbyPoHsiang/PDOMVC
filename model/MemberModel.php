@@ -1,5 +1,5 @@
 <?php
-class MusicModel{
+class MemberModel{
     protected $db;
 
     public function __construct($database)
@@ -7,27 +7,27 @@ class MusicModel{
         $this->db = $database;
     }
 
-    public function getAllMusic()
+    public function getAllmember()
     {
         $link = $this->db->openDbConnection();
 
-        $result = $link->query('SELECT * FROM music ORDER BY id');
+        $result = $link->query('SELECT * FROM member ORDER BY id');
 
-        $music = array();
+        $member = array();
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $music[] = $row;
+            $member[] = $row;
         }
         $this->db->closeDbConnection($link);
 
         
-		return $music;
+		return $member;
     }
 
-    public function getMusicById($id)
+    public function getMemberById($id)
     {
         $link = $this->db->openDbConnection();
 
-        $query = 'SELECT * FROM music WHERE  id=:id';
+        $query = 'SELECT * FROM member WHERE  id=:id';
         $statement = $link->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
@@ -43,12 +43,18 @@ class MusicModel{
     {
         $link = $this->db->openDbConnection();
 
-        $query = 'INSERT INTO music (name, phone, ename, email) VALUES (:name, :phone, :ename, :email)';
+        $query = 'INSERT INTO member (name, ename, phone, email, sex, city, township, postcode, address, notes, created_at, updated_at) VALUES (:name, :ename, :phone, :email, :sex, :city, :township, :postcode, :address, :notes,now(),now())';
         $statement = $link->prepare($query);
         $statement->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
         $statement->bindValue(':phone', $_POST['phone'], PDO::PARAM_STR);
         $statement->bindValue(':ename', $_POST['ename'], PDO::PARAM_STR);
         $statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+        $statement->bindValue(':sex', $_POST['sex'], PDO::PARAM_STR);
+        $statement->bindValue(':city', $_POST['city'], PDO::PARAM_STR);
+        $statement->bindValue(':township', $_POST['township'], PDO::PARAM_STR);
+        $statement->bindValue(':postcode', $_POST['postcode'], PDO::PARAM_STR);
+        $statement->bindValue(':address', $_POST['address'], PDO::PARAM_STR);
+        $statement->bindValue(':notes', $_POST['notes'], PDO::PARAM_STR);
         $statement->execute();
 
         $this->db->closeDbConnection($link);
@@ -58,12 +64,18 @@ class MusicModel{
     {
         $link = $this->db->openDbConnection();
 
-        $query = "UPDATE music SET name = :name, phone = :phone, ename = :ename, email = :email WHERE id = :id";
+        $query = "UPDATE member SET name = :name, phone = :phone, ename = :ename, email = :email, sex = :sex, city = :city, township = :township, postcode = :postcode, address = :address, notes = :notes,updated_at = now() WHERE id = :id";
         $statement = $link->prepare($query);
         $statement->bindValue(':name', $_POST['name'], PDO::PARAM_STR);
         $statement->bindValue(':phone', $_POST['phone'], PDO::PARAM_STR);
         $statement->bindValue(':ename', $_POST['ename'], PDO::PARAM_STR);
         $statement->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
+        $statement->bindValue(':sex', $_POST['sex'], PDO::PARAM_STR);
+        $statement->bindValue(':city', $_POST['city'], PDO::PARAM_STR);
+        $statement->bindValue(':township', $_POST['township'], PDO::PARAM_STR);
+        $statement->bindValue(':postcode', $_POST['postcode'], PDO::PARAM_STR);
+        $statement->bindValue(':address', $_POST['address'], PDO::PARAM_STR);
+        $statement->bindValue(':notes', $_POST['notes'], PDO::PARAM_STR);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
 
@@ -74,11 +86,11 @@ class MusicModel{
     {
         $link = $this->db->openDbConnection();
 
-        $query = "DELETE FROM music WHERE id = :id";
+        $query = "DELETE FROM member WHERE id = :id";
         $statement = $link->prepare($query);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
-
+        
         $this->db->closeDbConnection($link);
     }
 }
